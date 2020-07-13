@@ -8,12 +8,11 @@
 import os
 from PIL import Image
 src = os.getcwd()+"/images/"
-dest = os.getcwd()+"/opt/icons/"
-#directory = os.fsencode(src)
+dest = "/opt/icons/"
 for file in os.listdir(src):
     im = Image.open(src+file).convert('RGB')
     im = im.rotate(270)
     im = im.resize((128,128))
     outfile = os.path.basename(file)
-    #print(dest + outfile)
     im.save(dest + outfile, "JPEG")
+    print("Writing " + dest + outfile)
